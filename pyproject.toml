@@ -13,7 +13,7 @@ classifiers = [
 ]
 requires-python = ">=3.12,<3.14"
 dependencies = [
-    "click>=8.4.1", # BSD
+    "click>=8.4.2", # BSD
     "jinja2>=3.1.4", # BSD
     "PyYAML>=6.0.2", # MIT
 ]
@@ -28,16 +28,16 @@ Tracker = "https://github.com/techcode-io/temply/issues"
 temply = "temply.cli:main"
 
 [build-system]
-requires = ["uv_build>=0.11.21,<0.12.0"]
+requires = ["uv_build>=0.11.25,<0.12.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "poethepoet>=0.46.0", # MIT
+    "poethepoet>=0.47.0", # MIT
     "pre-commit>=4.6.0", # MIT
     "pyinstaller>=6.21.0", # GPL-2.0: https://pyinstaller.org/en/stable/license.html
-    "pytest>=9.1.0", # MIT
-    "ruff>=0.15.17", # MIT
+    "pytest>=9.1.1", # MIT
+    "ruff>=0.15.20", # MIT
     "sh>=2.3.0", # MIT
 ]
 
