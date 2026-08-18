@@ -9,6 +9,10 @@ from .filters import from_json, from_yaml, get_environment, to_json, to_yaml
 from .loaders import ChainLoader, DotenvLoader, EnvdirLoader, EnvLoader, JsonFileLoader
 
 
+class TemplateRenderError(Exception):
+    """Raised when a template fails to render due to undefined variables."""
+
+
 @click.command("temply")
 @click.option("--allow-missing", help="Allow missing variables.", is_flag=True)
 @click.option("--keep-template", help="Keep original template file.", is_flag=True)
@@ -105,7 +109,7 @@ def main(
     try:
         rendering = template.render(**envs)
     except jinja2.UndefinedError as err:
-        raise Exception(err) from err
+        raise TemplateRenderError(err) from err
 
     # Remove template
     if input_file and not keep_template:
